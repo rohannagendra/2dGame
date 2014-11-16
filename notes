@@ -1,0 +1,43 @@
+Pong - 2D canvas game with HTML5 and JS
+
+//Game loop
+	Game loop will, at interval, update and draw each entity.
+
+	The interval is obtained with: 1/FPS
+
+
+	//simple implementation of game loop
+		while (running) {
+			update()
+			draw()
+
+			sleep(1/fps)
+		}
+
+	Sleep in JS:
+		setInterval(function(){
+			game.update()
+			game.draw()
+		}, 1000/fps)  //ms per frame
+
+
+//Game Entity
+	Each entity will have position
+		X = 10
+		Y = 20
+	and dimension
+		Height = 100
+		Width = 100
+	and velocity
+		X velocity = 5  (move to right)
+		Y velocity = -2 (move up)
+
+//Collision detection
+	- We will use bounding box collision detection
+	- Use position and dimension to form a box around entities and detect collisions.
+
+
+	intersect  = 	a.y + a.height 	> b.y &&
+					a.y < b.y + b.height &&
+					a.x + a.width > b.x &&
+					a.x < b.x + b.width
